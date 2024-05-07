@@ -32,7 +32,7 @@ def is_pareto_efficient(costs):
 
 #Elimination of sequences with non-AA characters
 def seq_fix():
-    lines_d = open('.../MOQA/model_output/binary/decoded.txt','r')
+    lines_d = open('./model_output/binary/decoded.txt','r')
     Lines_d = lines_d.readlines()
     seq_d=[]
     for i in Lines_d:
@@ -101,7 +101,7 @@ def ParetoV(charge_density_instability_boman):
     hv = Hypervolume(xref)
     pv0 = hv.compute(x0)
     
-    oo = open('.../MOQA/model_output/binary/hv_score.txt','a')
+    oo = open('./model_output/binary/hv_score.txt','a')
     oo.write(str(pv0) + '\n')
     oo.close()
 
@@ -137,7 +137,7 @@ def NSPareto(charge_density_instability_boman,charge_density_instability_boman_o
 #Decode initial binary vector set
 os.system('python3 decode_file.py experiment_configs/binary.json')
 
-c0 = [x.split(' ')[:] for x in open('.../MOQA/model_output/binary/vectors.txt').readlines()]
+c0 = [x.split(' ')[:] for x in open('./model_output/binary/vectors.txt').readlines()]
 
 vectors_all=[]
 for k in range(len(c0)):
@@ -158,7 +158,7 @@ scores_all_instability=scores_all[1]
 scores_all_boman=scores_all[2]
 
 #Output best metrics in the initial set
-oo = open('.../MOQA/model_output/binary/all_points_best.txt','a')
+oo = open('./model_output/binary/all_points_best.txt','a')
 oo.write(str(np.max(scores_all_charge_density)) + ' ' + str(np.min(-1.*scores_all_instability)) + ' ' + str(np.min(-1.*scores_all_boman)) + '\n')
 oo.close()
 
@@ -198,14 +198,14 @@ for _ in range(200):
     for i in vectors_sample:
         vectors_sample_out.append(''.join(str(i)[1:-1].splitlines()))
     
-    os.system('rm .../MOQA/model_output/binary/vectors.txt')
-    oo = open('.../MOQA/model_output/binary/vectors.txt','a')
+    os.system('rm ./model_output/binary/vectors.txt')
+    oo = open('./model_output/binary/vectors.txt','a')
     for i in vectors_sample_out:
         oo.write(str(i) + '\n')
     oo.close()
 
-    os.system('rm .../MOQA/model_output/binary/decoded.txt')
-    os.system('python .../MOQA/decode_file.py experiment_configs/binary.json')
+    os.system('rm ./model_output/binary/decoded.txt')
+    os.system('python ./decode_file.py experiment_configs/binary.json')
     seq_d=seq_fix()
     
     seq_d_all = np.r_[seq_d_all, seq_d]
@@ -248,7 +248,7 @@ for _ in range(200):
     scores_all=(-1.)*SLayers
 
     #Output best metrics for the updated population
-    oo = open('.../MOQA/model_output/binary/all_points_best.txt','a')
+    oo = open('./model_output/binary/all_points_best.txt','a')
     oo.write(str(np.max(scores_all_charge_density)) + ' ' + str(np.min(-1.*scores_all_instability)) + ' ' + str(np.min(-1.*scores_all_boman)) + '\n')
     oo.close()
 
