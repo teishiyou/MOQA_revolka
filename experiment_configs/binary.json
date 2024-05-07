@@ -23,9 +23,9 @@
     "clip_grad_norm": 2.0,
     "keep_checkpoint_max": 10,
     
-    "data_path": ".../MOQA/data/",
-    "model_path": ".../MOQA/model_data/<model_name>/",
-    "output_path": ".../MOQA/model_output/<model_name>/",
+    "data_path": "./data/",
+    "model_path": "./model_data/<model_name>/",
+    "output_path": "./model_output/<model_name>/",
     
     "max_input_length": 52,
     "max_output_length": 52,
