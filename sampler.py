@@ -32,7 +32,7 @@ def is_pareto_efficient(costs):
 
 #Elimination of sequences with non-AA characters
 def seq_fix():
-    lines_d = open('./model_output/binary/decoded.txt','r')
+    lines_d = open('./model_output/binary/vectors.txt','r')
     Lines_d = lines_d.readlines()
     seq_d=[]
     for i in Lines_d:
