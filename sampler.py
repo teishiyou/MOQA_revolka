@@ -153,7 +153,7 @@ seq_d_all=seq_fix()
 
 #Calculate objective functions
 print("line 155", seq_d_all)
-scores_all=objectives(seq_d_all)
+scores_all=objectives(seq_d_all[0])
 scores_all_charge_density=scores_all[0]
 scores_all_instability=scores_all[1]
 scores_all_boman=scores_all[2]
