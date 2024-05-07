@@ -152,6 +152,7 @@ vectors_all=np.array(vectors_all)
 seq_d_all=seq_fix()
 
 #Calculate objective functions
+print("line 155", seq_d_all)
 scores_all=objectives(seq_d_all)
 scores_all_charge_density=scores_all[0]
 scores_all_instability=scores_all[1]
